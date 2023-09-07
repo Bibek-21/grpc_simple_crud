@@ -1,0 +1,60 @@
+syntax = "proto3";
+package example.simpleCrud;
+
+
+message CreateRequest {
+    string FirstName = 1;
+    string LastName = 2;
+    int32 CRN = 3;
+    int64 Contact= 4;
+    string DOB = 5;
+    string Guardian = 6;
+    string Address=7;
+    bool IsDeleted=8;
+}
+
+message CreateResponse{
+    int32 status =1;
+    int64 message =2;
+}
+
+message Empty {
+    
+}
+
+
+message UpdateRequest{
+    string FirstName = 1;
+    string LastName = 2;
+    int32 CRN = 3;
+    int64 Contact= 4;
+    string DOB = 5;
+    string Guardian = 6;
+    string Address=7;
+    bool IsDeleted=8;
+}
+
+
+
+message UpdateRespose{
+repeated Details message=1;
+
+}
+
+
+message Details{
+    string FirstName = 1;
+    string LastName = 2;
+    int32 CRN = 3;
+    int64 Contact= 4;
+    string DOB = 5;
+    string Guardian = 6;
+    string Address=7;
+    bool IsDeleted=8;
+}
+
+
+message GetRequest {
+
+    string id = 1;
+}
