@@ -12,7 +12,7 @@ const packageDefinition = protoLoader.loadSync('./proto/simpleCrud.rpc.proto', {
     defaults: true,
   })
 
-
+app.use(express.json())
 const server= new grpc.Server()
 
 
@@ -22,9 +22,12 @@ const simpleServiceA = require('./controllers/index');
 
 server.addService(simpleProto.example.simpleCrud.rpc.simpleCrudService.service,{
     create:simpleServiceA.createStudents,
+    read:simpleServiceA.readStudents
 })
+
+const port = process.env.PORT;
 server.bindAsync(
-    process.env.GRPC_HOST,
+    `${process.env.GRPC_HOST}:${port}`,
     grpc.ServerCredentials.createInsecure(),
     (err,port) => {
       if (err) {

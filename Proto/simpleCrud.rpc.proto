@@ -3,6 +3,8 @@ package example.simpleCrud.rpc;
 import "simpleCrud.proto";
 
 service simpleCrudService{
-rpc create (example.simpleCrud.CreateRequest) returns (example.simpleCrud.CreateResponse);
+rpc create (example.simpleCrud.createRequest) returns (example.simpleCrud.createResponse);
+rpc read (example.simpleCrud.readId) returns (example.simpleCrud.details);
+
 
 }

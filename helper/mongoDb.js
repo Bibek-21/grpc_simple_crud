@@ -8,7 +8,7 @@ mongoose.Promise = global.Promise;
 
 db.mongoose= mongoose;
 db.uri= config.uri;
-db.students = require('../models/students')
+db.students = require('../models/students')(mongoose);
 
 db.mongoose
 .connect(db.uri, {
@@ -22,4 +22,4 @@ db.mongoose
   console.log("Cannot connect to the database!", err);
   process.exit();
 });
-module.exports={db}
+module.exports= db

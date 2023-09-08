@@ -2,7 +2,8 @@ syntax = "proto3";
 package example.simpleCrud;
 
 
-message CreateRequest {
+message createRequest
+ {
     string FirstName = 1;
     string LastName = 2;
     int32 CRN = 3;
@@ -13,17 +14,17 @@ message CreateRequest {
     bool IsDeleted=8;
 }
 
-message CreateResponse{
+message createResponse{
     int32 status =1;
-    int64 message =2;
+    string message =2;
 }
 
-message Empty {
+message empty {
     
 }
 
 
-message UpdateRequest{
+message updateRequest{
     string FirstName = 1;
     string LastName = 2;
     int32 CRN = 3;
@@ -34,15 +35,24 @@ message UpdateRequest{
     bool IsDeleted=8;
 }
 
-
-
-message UpdateRespose{
-repeated Details message=1;
+message readId{
+    string id=1;
 
 }
 
 
-message Details{
+message updateRespose{
+    repeated details message=1;
+
+}
+
+message readResponse{
+    repeated details message=1;
+
+}
+
+
+message details{
     string FirstName = 1;
     string LastName = 2;
     int32 CRN = 3;
