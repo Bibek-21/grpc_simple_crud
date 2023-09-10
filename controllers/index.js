@@ -86,6 +86,21 @@ exports.readStudents = async (call, callback) => {
 }
 
 
+exports.readAllStudents= async(call,callback)=>{
+let readResponse={}
+try {
+  const dbResponse= await studentsModel.find(call.request)
+  if(dbResponse){
+
+    readResponse.data=dbResponse;
+  }
+  return callback(null,readResponse)
+} catch (error) {
+  return callback(error)
+}
+
+}
+
 
 exports.updateStudents = async (call, callback) => {
   const id = call.request.id;

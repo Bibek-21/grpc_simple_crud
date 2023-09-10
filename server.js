@@ -23,6 +23,7 @@ const simpleServiceA = require('./controllers/index');
 server.addService(simpleProto.example.simpleCrud.rpc.simpleCrudService.service,{
     create:simpleServiceA.createStudents,
     read:simpleServiceA.readStudents,
+    readAll:simpleServiceA.readAllStudents,
     update:simpleServiceA.updateStudents,
     delete:simpleServiceA.deleteStudents
 })

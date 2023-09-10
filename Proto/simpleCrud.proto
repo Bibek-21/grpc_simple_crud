@@ -23,6 +23,10 @@ message empty {
     
 }
 
+message readAll{
+    repeated details data =1;
+}
+
 
 message updateRequest{
     string id=0;
