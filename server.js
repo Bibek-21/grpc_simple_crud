@@ -22,7 +22,9 @@ const simpleServiceA = require('./controllers/index');
 
 server.addService(simpleProto.example.simpleCrud.rpc.simpleCrudService.service,{
     create:simpleServiceA.createStudents,
-    read:simpleServiceA.readStudents
+    read:simpleServiceA.readStudents,
+    update:simpleServiceA.updateStudents,
+    delete:simpleServiceA.deleteStudents
 })
 
 const port = process.env.PORT;
@@ -38,6 +40,3 @@ server.bindAsync(
       }
     }
   );
-
-
-

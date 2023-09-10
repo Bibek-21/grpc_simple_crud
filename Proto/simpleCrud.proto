@@ -14,7 +14,7 @@ message createRequest
     bool IsDeleted=8;
 }
 
-message createResponse{
+message response{
     int32 status =1;
     string message =2;
 }
@@ -25,6 +25,7 @@ message empty {
 
 
 message updateRequest{
+    string id=0;
     string FirstName = 1;
     string LastName = 2;
     int32 CRN = 3;
@@ -35,21 +36,11 @@ message updateRequest{
     bool IsDeleted=8;
 }
 
-message readId{
+message requestId{
     string id=1;
 
 }
 
-
-message updateRespose{
-    repeated details message=1;
-
-}
-
-// message readResponse{
-//     repeated details message=1;
-
-// }
 
 
 message details{
@@ -64,7 +55,3 @@ message details{
 }
 
 
-message GetRequest {
-
-    string id = 1;
-}
