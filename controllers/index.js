@@ -27,7 +27,7 @@ exports.readStudents= async(call, callback)=>{
 
 try {
 
-let dbResponse = await studentsModel.find(call.request)
+let dbResponse = await studentsModel.findById(call.request)
   
 
 if(dbResponse){
