@@ -46,10 +46,10 @@ message updateRespose{
 
 }
 
-message readResponse{
-    repeated details message=1;
+// message readResponse{
+//     repeated details message=1;
 
-}
+// }
 
 
 message details{

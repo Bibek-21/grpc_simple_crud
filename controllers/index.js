@@ -3,7 +3,7 @@ const studentsModel= db.students
 const httpStatus = require('http-status');
 
 let response = { status:httpStatus.BAD_REQUEST,message:'Request failed'}
-
+let details ={}
 exports.createStudents= async (call,callback)=>{
 
   try {
@@ -32,8 +32,14 @@ let dbResponse = await studentsModel.findById(call.request)
 
 if(dbResponse){
 
-response.status=httpStatus.OK;
-response.message= dbResponse.message;
+ details.FirstName = dbResponse.FirstName;
+ details.LastName = dbResponse.LastName;
+ details.CRN = dbResponse.CRN;
+ details.Contact= dbResponse.Contact;
+ details.DOB = dbResponse.DOB;
+ details.Guardian = dbResponse.Guardian;
+ details.Address=dbResponse.Address;
+ details.IsDeleted=dbResponse.IsDeleted;
 }
 return callback(null, response)
 } 
