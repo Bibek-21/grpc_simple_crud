@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  node-app:
+    build: 
+     context: GRPC_SIMPLE_CRUD
+     
+    image: node-app
+    environment:
+      MONGODB_URL: mongodb://mongodb:27017/CRUD_API_MongoDB
+      GRPC_HOST: 0.0.0.0
+      PORT: 3000
+      PROTOPATH: ./proto/simpleCrud.rpc.proto
+    ports:
+      - '3000:3000'
+    links:
+      - mongodb
+
+    networks:
+      - node-network
+
+  mongodb:
+    image: mongo:6-jammy
+    ports:
+      - '27017:27017'
+    volumes:
+      - dbdata6:/data/db
+    networks:
+      - node-network
+
+volumes:
+  dbdata6:
+
+networks:
+  node-network:
+    driver: bridge

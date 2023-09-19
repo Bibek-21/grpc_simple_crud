@@ -6,7 +6,10 @@ const protoLoader= require('@grpc/proto-loader')
 dotenv.config()
 app=  express();
 
-const packageDefinition = protoLoader.loadSync('./proto/simpleCrud.rpc.proto', {
+// const filepath = __dirname;
+// const testPath = require('./Proto/simpleCrud.rpc')
+// const protoPath = `${filepath}/${testPath}`
+const packageDefinition = protoLoader.loadSync(process.env.PROTOPATH, {
     keepCase: true,
     longs: 'string',
     defaults: true,
